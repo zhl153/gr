@@ -28,14 +28,19 @@ def run():
     # of the code.
     
     with grpc.insecure_channel('localhost:50051') as channel:
+        #print("create channel")
         stub = helloworld_pb2_grpc.GreeterStub(channel)
+        #print("stub")
         response = stub.SayHello(helloworld_pb2.HelloRequest(name='you'))
-    while True:
+        #print("get res")
+#    while True:
         print("Greeter client received: " + response.message)
-        time.sleep(10)
+#        time.sleep(10)
 
 
 
 if __name__ == '__main__':
     logging.basicConfig()
-    run()
+    while True:
+        run()
+        time.sleep(10)
