@@ -25,7 +25,7 @@ import helloworld_pb2_grpc
 class Greeter(helloworld_pb2_grpc.GreeterServicer):
 
     def SayHello(self, request, context):
-        with grpc.insecure_channel('10.0.8.110') as channel:
+        with grpc.insecure_channel('server:80') as channel:
             #print("connect")
             stub = helloworld_pb2_grpc.GreeterStub(channel)
             #print("create stub")
